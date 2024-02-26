@@ -1,5 +1,5 @@
 """
-File: ReadCSVInBatches.py
+File: ReadFlatFileInBatches.py
 Author: EC
 Created: 2024-02-26
 
