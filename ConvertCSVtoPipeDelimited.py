@@ -25,7 +25,7 @@ def process_csv(input_folder: str, output_folder: str):
         input_csv_path = os.path.join(input_folder, 'population.csv')
         output_txt_path = os.path.join(output_folder, 'population.txt')
 
-        # Read in orginal CSV file
+        # Read in original CSV file
         df = pd.read_csv(input_csv_path, sep=',')
 
         # Output text file with pipe delimiter
