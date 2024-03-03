@@ -24,16 +24,17 @@ def chunkfile(file_path: str, chunk_size: int = 100000):
         start_time = time.time()
 
         # Read the file, file has no header
-        df_chunks = pd.read_csv(file_path, sep='|', engine='python', encoding='unicode_escape', header=None, chunksize=chunk_size)
+        df_chunks = pd.read_csv(file_path, sep=',', engine='python', encoding='unicode_escape', header=None, chunksize=chunk_size)
 
         # Empty data frame to store chunks
         df = pd.DataFrame()
 
         # Process each data chunk and concatenate
-        for chunk in df_chunks:
+        for i, chunk in enumerate(df_chunks, start=1):
             df = pd.concat([df, chunk], ignore_index=True)
+            print(f"Rows read in chunk {i}: {len(chunk):,}")
 
-        print(f"Number of rows in the text file: {len(df):,}")
+        print(f"Total number of rows in the text file: {len(df):,}")
 
         # Calculate the execution time
         end_time = time.time()
@@ -46,10 +47,8 @@ def chunkfile(file_path: str, chunk_size: int = 100000):
 
 
 def main():
-    input_file_path = r'D:\NationalData\Load\tags.txt'
+    input_file_path = r'E:\WNationalData\Data\tags.csv'
     chunkfile(input_file_path)
 
 main()
-
-
 
