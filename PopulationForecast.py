@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
 
 # Read the CSV file
-file_path = r'E:\Work Files\Python\CS50\Data Analytics\MYEB2 (2023 Geography).csv'
+file_path = r'E:\WNationalData\Data\MYEB2 (2023 Geography).csv'
 df = pd.read_csv(file_path, sep=',', engine='python', encoding='unicode_escape', header=None, skiprows=1)
 
 # Use the second row as the column names
