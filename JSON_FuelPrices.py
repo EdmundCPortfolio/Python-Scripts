@@ -4,7 +4,7 @@ Author: EC
 Created: 2024-03-05
 
 Description: 
-Script fetches fuel price data from multiple URLs, combines it into a DataFrame and exports as  CSV.
+Script fetches fuel price data from multiple URLs, combines it into a DataFrame and exports as a CSV file.
 
 Data source:
 https://www.gov.uk/guidance/access-fuel-price-data
@@ -60,13 +60,13 @@ combined_df['B7_price'] = combined_df['prices'].apply(lambda p: p.get('B7'))
 combined_df['E5_price'] = combined_df['prices'].apply(lambda p: p.get('E5'))
 combined_df['E10_price'] = combined_df['prices'].apply(lambda p: p.get('E10'))
 
-# Drop the original 'location' and 'prices' columns
+# Drop the original columns which arent used
 combined_df.drop(columns=['location', 'prices'], inplace=True)
 
 # Construct filename of file to be exported
 filename = 'Fuel_Prices' + '_' + date_string + '.csv'
 
-print(filename)
+#print(filename)
 
 # Write the combined data to a CSV file
 combined_df.to_csv(filename, index=False, encoding='utf-8')
