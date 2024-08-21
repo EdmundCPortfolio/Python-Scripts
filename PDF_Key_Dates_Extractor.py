@@ -5,7 +5,7 @@ Created: 2024-08-21
 
 Description: 
 The script scans and extracts the dates from a PDF file, recording the associated page number of where the date was found.
-Script can help summarise key dates from Board and Annual Performance reports.
+Script can help identify key dates from Board and Annual Performance reports.
 
 Sample report, Annual Report 2023 24
 https://www.imperial.nhs.uk/about-us/how-we-are-doing/annual-reports
