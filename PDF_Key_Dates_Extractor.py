@@ -22,7 +22,7 @@ def extract_dates_with_page_numbers(pdf_path):
         reader = PyPDF2.PdfReader(file)
         num_pages = len(reader.pages)
         
-        # Empty list to store dates and thier page numbers.
+        # Empty list to store dates and associated page numbers.
         found_dates = []
         
         # Loop through each page extracting text from each page.
