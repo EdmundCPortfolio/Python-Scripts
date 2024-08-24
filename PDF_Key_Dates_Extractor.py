@@ -4,7 +4,7 @@ Author: EC
 Created: 2024-08-21
 
 Description: 
-The script scans and extracts the dates from a PDF file, recording the associated page number of where the date was found.
+The script scans and extracts the dates (which may indicate dates of deliverables) from a PDF file, recording the associated page number of where the date was found.
 Script can help identify key dates from Board and Annual Performance reports.
 
 Sample report, Annual Report 2023 24
