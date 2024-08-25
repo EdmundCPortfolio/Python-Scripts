@@ -20,7 +20,7 @@ https://www.imperial.nhs.uk/about-us/how-we-are-doing/annual-reports
 import PyPDF2
 import re
 import csv
-#import nltk
+import nltk
 from nltk.corpus import stopwords
 from nltk.corpus import wordnet
 from nltk.stem import PorterStemmer
