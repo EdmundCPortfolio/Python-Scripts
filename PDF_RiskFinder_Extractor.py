@@ -14,20 +14,20 @@ https://www.imperial.nhs.uk/about-us/how-we-are-doing/annual-reports
 #!pip install PyPDF2
 #!pip install nltk
 
-#need this unzip command if using Kaggle
+# Need this unzip command if using Kaggle
 #!unzip /usr/share/nltk_data/corpora/wordnet.zip -d /usr/share/nltk_data/corpora/
 
 import PyPDF2
 import re
 import csv
-import nltk
+#import nltk
 from nltk.corpus import stopwords
 from nltk.corpus import wordnet
 from nltk.stem import PorterStemmer
 
 pdf_path = '/kaggle/input/imperial-annual-report-202324/Annual Report 2023 24.pdf'
 
-#open in read binary mode
+# Open in read binary mode
 file = open(pdf_path,'rb')
 
 reader = PyPDF2.PdfReader(file)
@@ -36,7 +36,7 @@ num_pages = len(reader.pages)
 
 print(f'The pdf contains {num_pages} pages')
 
-# Create a list of words associated with "risk" using WordNet
+# Create a list of words associated with risk using WordNet
 risk_synonyms = set()
 for syn in wordnet.synsets('risk'):
     for lemma in syn.lemmas():
@@ -48,10 +48,10 @@ risk_synonyms = list(risk_synonyms)
 # Initialize the PorterStemmer
 stemmer = PorterStemmer()
 
-# Stem the risk-related terms
+# Stemmer normalises words, stips off plural form or past tense
 stemmed_risk_terms = [stemmer.stem(term) for term in risk_synonyms]
 
-# Function to extract paragraphs containing risk-related terms
+# Extract paragraphs containing risk related terms
 def extract_risk_paragraphs(text, risk_terms):
     paragraphs = text.split('\n\n')
     risk_paragraphs = []
@@ -71,13 +71,13 @@ for page_num in range(num_pages):
     for paragraph in risk_paragraphs:
         all_risk_paragraphs.append((paragraph, page_num + 1))  # Store paragraph with page number
 
-# Print the risk-related paragraphs with page numbers
+# Print the risk related paragraphs with page numbers
 for i, (paragraph, page_num) in enumerate(all_risk_paragraphs):
     print(f'Paragraph {i+1} (Page {page_num}‡):')
     print(paragraph)
     print('\n')
 
-# Export the risk-related paragraphs with page numbers to a pipe-delimited text file
+# Export  paragraphs 
 with open('risk_paragraphs.txt', 'w', encoding='utf-8') as f:
     for i, (paragraph, page_num) in enumerate(all_risk_paragraphs):
         f.write(f'Paragraph {i+1} (Page {page_num}‡)|{paragraph}\n')
