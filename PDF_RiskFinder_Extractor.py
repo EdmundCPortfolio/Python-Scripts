@@ -65,4 +65,10 @@ for i, (paragraph, page_num) in enumerate(all_risk_paragraphs):
     print(paragraph)
     print('\n')
 
+# Export the risk-related paragraphs with page numbers to a pipe-delimited text file
+with open('risk_paragraphs.txt', 'w', encoding='utf-8') as f:
+    for i, (paragraph, page_num) in enumerate(all_risk_paragraphs):
+        f.write(f'Paragraph {i+1} (Page {page_num}‡)|{paragraph}\n')
+
+
 file.close()
