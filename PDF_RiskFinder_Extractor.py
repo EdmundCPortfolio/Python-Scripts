@@ -1,4 +1,16 @@
+"""
+File: PDF_RiskFinder_Extractor.py
+Author: EC
+Created: 2024-08-25
 
+Description: 
+The script uses natural language processing to identify and extract paragraphs related to risk from a PDF
+Script can help to highlight recorded risks from Board and Annual Performance reports.
+
+Sample report, Annual Report 2023 24
+https://www.imperial.nhs.uk/about-us/how-we-are-doing/annual-reports
+
+"""
 #!pip install PyPDF2
 #!pip install nltk
 
